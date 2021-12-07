@@ -12,6 +12,26 @@ export default {
     goHome() {
       this.$router.push('/welcome')
     }
+  },
+  async mounted() {
+    // this.$request({
+    //   method: 'get',
+    //   url: '/login',
+    //   data: {
+    //     name: 'booker'
+    //   }
+    // }).then((res) => {
+    //   console.log(res)
+    // })
+
+    const res = await this.$request
+      .get('/login', {
+        name: 'booker'
+      })
+      .catch((err) => {
+        console.log('错误', err)
+      })
+    console.log('结果', res)
   }
 }
 </script>
