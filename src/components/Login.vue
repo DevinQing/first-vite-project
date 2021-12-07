@@ -23,7 +23,6 @@ export default {
     // }).then((res) => {
     //   console.log(res)
     // })
-
     const res = await this.$request
       .get('/login', {
         name: 'booker'

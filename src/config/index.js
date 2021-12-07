@@ -28,5 +28,6 @@ export default {
   env,
   // 表示项目后端还没有好 用 mock 方式来进行访问
   mock: true,
+  namespace: 'DevinQing-MoocProject',
   ...EnvConfig[env]
 }

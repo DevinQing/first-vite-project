@@ -30,7 +30,7 @@ service.interceptors.request.use((req) => {
 service.interceptors.response.use((res) => {
   //   debugger
   // 暂时觉得这一步其实没必要
-  //   const { code, data, msg } = res.data
+  const { code, data, msg } = res.data
   if (code === 200) {
     return data
   } else if (code === 400) {
