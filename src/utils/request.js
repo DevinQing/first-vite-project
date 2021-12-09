@@ -11,6 +11,8 @@ const NETWORK_ERROR = '网络错误，请稍后重试'
 // 创建 axios 实例对象，添加全局配置
 const service = axios.create({
   // 请求的 baseURL 地址，不用每次都请求
+  // 在这里添加的参数可以在 service.defaults中取到
+  // 这个 service 被封装成了一个构造函数
   baseURL: config.baseApi,
   timeout: 8000
 })
@@ -61,7 +63,8 @@ function request(options) {
     // 以防万一 防止线上请求到 mock 地址
     service.defaults.baseURL = config.baseApi
   } else {
-    service.defaults.baseURL = config.mock ? config.mockApi : config.baseApi
+    // 如果在开发模式传递参数的时候，传递了 mock = true ，则请求mock接口
+    service.defaults.baseURL = options.mock ? config.mockApi : config.baseApi
   }
   // 就是对前面的参数做了封装
   return service(options)

@@ -5,7 +5,6 @@
 // 获取环境变量
 const env = import.meta.env.MODE || 'prod'
 // 根据项目不同的环境找到项目不同的api
-console.log(import.meta.env)
 const EnvConfig = {
   dev: {
     baseApi: '/',
@@ -27,7 +26,8 @@ const EnvConfig = {
 export default {
   env,
   // 表示项目后端还没有好 用 mock 方式来进行访问
-  mock: true,
+  // mock: true,
+  // 个人觉得这个 mock 应该在请求传参的时候传递
   namespace: 'DevinQing-MoocProject',
   ...EnvConfig[env]
 }
