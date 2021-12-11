@@ -11,13 +11,13 @@
             v-model="form.userName"
           ></el-input>
         </el-form-item>
-        <el-form-item prop="userPsw">
+        <el-form-item prop="userPwd">
           <el-input
             placeholder="请输入密码"
             show-password
             clearable
             :prefix-icon="Lock"
-            v-model="form.userPsw"
+            v-model="form.userPwd"
           ></el-input>
         </el-form-item>
         <el-form-item>
@@ -30,7 +30,8 @@
 
 <script>
 import { Lock, User } from '@element-plus/icons'
-import { userLogin } from './../api/user/login'
+import { userLogin, what } from './../api/user/login'
+import { ElMessage } from 'element-plus'
 
 export default {
   name: 'login',
@@ -41,7 +42,7 @@ export default {
       Lock,
       form: {
         userName: '',
-        userPsw: ''
+        userPwd: ''
       },
       rules: {
         userName: [
@@ -71,14 +72,18 @@ export default {
     login() {
       this.$refs.form.validate(async (valid) => {
         if (valid) {
-          const res = await userLogin({
-            userName: this.form.userName,
-            userPsw: this.form.userPsw
-          }).catch((err) => {
+          try {
+            const res = await userLogin({
+              userName: this.form.userName,
+              userPwd: this.form.userPwd
+            })
+            ElMessage.success('登录成功')
+            this.$store.commit('saveUserInfo', res)
+            this.$router.push('/welcome')
+          } catch (err) {
+            console.log(err)
             ElMessage.error('登录失败')
-          })
-          this.$store.commit('saveUserInfo', res)
-          this.$router.push('/welcome')
+          }
         } else {
           return false
         }

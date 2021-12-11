@@ -7,7 +7,7 @@ const env = import.meta.env.MODE || 'prod'
 // 根据项目不同的环境找到项目不同的api
 const EnvConfig = {
   dev: {
-    baseApi: '/',
+    baseApi: '/api',
     mockApi:
       'https://www.fastmock.site/mock/261e7558e985b2b73d68c97e918eebab/api'
   },
