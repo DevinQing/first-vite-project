@@ -30,7 +30,7 @@
 
 <script>
 import { Lock, User } from '@element-plus/icons'
-import { userLogin, what } from './../api/user/login'
+import { userLogin } from './../api/user/login'
 import { ElMessage } from 'element-plus'
 
 export default {

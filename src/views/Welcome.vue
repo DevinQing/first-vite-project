@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <h2>欢迎界面</h2>
-    <router-link to="/login">去登录</router-link>
+  <div class="welcome-container">
+    <img src="./../assets/images/my.jpg" />
   </div>
 </template>
 
@@ -9,4 +8,13 @@
 export default {}
 </script>
 
-<style></style>
+<style lang="scss">
+.welcome-container {
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>
