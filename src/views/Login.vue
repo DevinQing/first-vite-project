@@ -30,7 +30,7 @@
 
 <script>
 import { Lock, User } from '@element-plus/icons'
-import { userLogin } from './../api/user/login'
+import { userLogin } from '@/api/user/login'
 import { ElMessage } from 'element-plus'
 
 export default {
@@ -41,8 +41,8 @@ export default {
       User,
       Lock,
       form: {
-        userName: '',
-        userPwd: ''
+        userName: 'booker',
+        userPwd: '12345678'
       },
       rules: {
         userName: [

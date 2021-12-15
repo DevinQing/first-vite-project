@@ -6,16 +6,16 @@ const routes = [
     meta: {
       title: '主界面'
     },
-    component: () => import('./../views/Home.vue'),
+    component: () => import('@/views/Home.vue'),
     redirect: '/welcome',
     children: [
       {
         name: 'welcome',
-        path: '/welcome',
+        path: 'welcome',
         meta: {
           title: '欢迎界面'
         },
-        component: () => import('./../views/Welcome.vue')
+        component: () => import('@/views/Welcome.vue')
       }
     ]
   },
@@ -25,7 +25,7 @@ const routes = [
     meta: {
       title: '登录'
     },
-    component: () => import('./../views/Login.vue')
+    component: () => import('@/views/Login.vue')
   }
 ]
 
