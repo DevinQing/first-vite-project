@@ -18,5 +18,4 @@ Object.keys(icons).forEach((key) => {
 // 挂载用 $ 访问的全局变量
 app.config.globalProperties.$request = request
 app.config.globalProperties.$storage = storage
-
-app.use(router).use(ElementPlus).use(store).mount('#app')
+app.use(router).use(ElementPlus, { size: 'small' }).use(store).mount('#app')

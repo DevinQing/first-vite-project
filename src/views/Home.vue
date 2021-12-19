@@ -1,8 +1,8 @@
 <template>
   <div class="basic-layout">
-    <div class="nav-side">
+    <div :class="['nav-side', isCollapse ? 'fold' : 'unfold']">
       <div class="top">
-        <div class="collapse-icon" @click="this.isCollapse = !this.isCollapse">
+        <div class="collapse-icon" @click="isCollapse = !isCollapse">
           <el-icon :size="28"><expand /></el-icon>
         </div>
         <span v-show="!isCollapse">Manager</span>
@@ -22,7 +22,7 @@
         </el-menu>
       </div>
     </div>
-    <div class="content-right">
+    <div :class="['content-right', isCollapse ? 'fold' : 'unfold']">
       <div class="nav-top">
         <div class="bread-box">
           <breadcrumb />
@@ -112,13 +112,21 @@ export default {
 
 <style lang="scss" scoped>
 $base-color: darkgreen;
+
 .basic-layout {
-  display: flex;
+  position: relative;
   .nav-side {
-    height: 100vh;
+    position: fixed;
     background-color: $base-color;
     color: #fff;
-    overflow-y: auto;
+    height: 100%;
+    // overflow-y: auto;
+    &.fold {
+      width: 64px;
+    }
+    &.unfold {
+      width: 204px;
+    }
     .top {
       width: 100%;
       height: 50px;
@@ -131,7 +139,6 @@ $base-color: darkgreen;
       }
       span {
         flex: 1;
-        width: 140px;
         color: #fff;
         height: 50px;
         line-height: 50px;
@@ -140,14 +147,19 @@ $base-color: darkgreen;
       }
     }
     .menu {
-      height: calc(100vh - 50px);
+      // height: calc(100vh - 50px);
       .el-menu-vertical-demo {
         border: 0;
       }
     }
   }
   .content-right {
-    flex: 1;
+    &.fold {
+      margin-left: 64px;
+    }
+    &.unfold {
+      margin-left: 204px;
+    }
     .nav-top {
       display: flex;
       justify-content: space-between;
@@ -177,13 +189,11 @@ $base-color: darkgreen;
       }
     }
     .wrapper {
-      height: calc(100vh - 50px);
       background-color: #ecedf2;
       padding: 20px;
       .main-page {
         width: 100%;
         height: 100%;
-        background-color: #fff;
       }
     }
   }

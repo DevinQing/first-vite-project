@@ -23,3 +23,27 @@ export const getNoticeCount = () => {
 export const getMenuList = () => {
   return request.get('/menu/list', {}, { mock: true })
 }
+
+/**
+ * 获取用户列表
+ */
+
+export const getUserList = (params) => {
+  return request.get('/users/list', params)
+}
+
+/**
+ * 删除用户
+ */
+
+export const deletUsers = (params) => {
+  return request.post('/users/delete', params)
+}
+
+/**
+ * 增加用户或者编辑用户
+ */
+
+export const addOrEditUser = (params) => {
+  return request.post('/users/operate', params)
+}

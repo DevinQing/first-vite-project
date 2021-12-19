@@ -4,7 +4,7 @@ const routes = [
     name: 'home',
     path: '/',
     meta: {
-      title: '主界面'
+      title: '首页'
     },
     component: () => import('@/views/Home.vue'),
     redirect: '/welcome',
@@ -26,6 +26,24 @@ const routes = [
       title: '登录'
     },
     component: () => import('@/views/Login.vue')
+  },
+  {
+    name: 'system',
+    path: '/system',
+    meta: {
+      title: '系统管理'
+    },
+    component: () => import('@/views/Home.vue'),
+    children: [
+      {
+        name: 'user',
+        path: 'user',
+        meta: {
+          title: '用户管理'
+        },
+        component: () => import('@/views/system/User.vue')
+      }
+    ]
   }
 ]
 
