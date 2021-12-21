@@ -161,7 +161,7 @@ import { ElMessageBox, ElMessage } from 'element-plus'
 import { onMounted, reactive, ref, getCurrentInstance } from 'vue'
 import { formatDate } from '@/utils/utils.js'
 export default {
-  name: 'user',
+  name: 'User',
   setup() {
     // 获取 Composition API 上下文对象
     const { ctx } = getCurrentInstance()

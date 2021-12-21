@@ -21,7 +21,7 @@ export const getNoticeCount = () => {
  */
 
 export const getMenuList = () => {
-  return request.get('/menu/list', {}, { mock: true })
+  return request.get('/menu/list', {})
 }
 
 /**
